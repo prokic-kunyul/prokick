@@ -66,7 +66,7 @@ export default function CartPage() {
   useEffect(() => {
     // eslint-disable-next-line react-hooks/set-state-in-effect
     setMounted(true)
-    fetch('/api/settings').then(res => res.json()).then(setSettings).catch(console.error)
+    fetch('/api/settings', { cache: 'no-store' }).then(res => res.json()).then(setSettings).catch(console.error)
   }, [])
 
   // Calculations
