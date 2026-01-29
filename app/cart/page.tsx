@@ -140,7 +140,7 @@ export default function CartPage() {
     }
 
     if (paymentMethod === 'whatsapp') {
-      const phone = settings.whatsapp || '628123456789'
+      const phone = settings.whatsapp || '6282197008330'
       const text = generateWhatsAppOrderText(checkoutData)
       
       window.open(`https://wa.me/${phone}?text=${text}`, '_blank')
@@ -228,7 +228,7 @@ export default function CartPage() {
               number: settings.bankAccount || '1234567890',
               holder: settings.bankHolder || 'Jersey Store'
             }}
-            waPhone={settings.whatsapp || '628123456789'}
+            waPhone={settings.whatsapp || '6282197008330'}
             waText={waConfirmText}
           />
         ) : items.length === 0 ? (

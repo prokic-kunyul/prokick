@@ -9,7 +9,7 @@ interface WhatsAppFloatButtonProps {
 }
 
 export function WhatsAppFloatButton({ 
-  phoneNumber = '628123456789',
+  phoneNumber = '6282197008330',
   message = 'Halo, saya tertarik dengan produk di Pro-Kick!'
 }: WhatsAppFloatButtonProps) {
   const [isVisible, setIsVisible] = useState(false)

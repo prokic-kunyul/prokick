@@ -64,7 +64,7 @@ export function SettingsForm({ initialSettings }: SettingsFormProps) {
          <div className="bg-white/5 p-6 rounded-2xl">
             <div className="space-y-2">
               <label className="text-sm font-bold text-gray-300">WhatsApp Number</label>
-              <input name="whatsapp" defaultValue={initialSettings.whatsapp} placeholder="e.g. 628123456789" className="w-full bg-slate-900 border border-white/10 rounded-xl px-4 py-3 text-white focus:ring-2 focus:ring-blue-500 outline-none" />
+              <input name="whatsapp" defaultValue={initialSettings.whatsapp} placeholder="e.g. 6282197008330" className="w-full bg-slate-900 border border-white/10 rounded-xl px-4 py-3 text-white focus:ring-2 focus:ring-blue-500 outline-none" />
               <p className="text-xs text-gray-500">Use international format without &apos;+&apos; (e.g. 62...)</p>
             </div>
          </div>
