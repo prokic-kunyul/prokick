@@ -10,7 +10,16 @@ export async function updateSettings(formData: FormData) {
     const bankName = formData.get('bankName') as string
     const bankAccount = formData.get('bankAccount') as string
     const bankHolder = formData.get('bankHolder') as string
-    const whatsapp = formData.get('whatsapp') as string
+    let whatsapp = formData.get('whatsapp') as string
+
+    // Sanitize WhatsApp number (remove non-digits)
+    if (whatsapp) {
+      whatsapp = whatsapp.replace(/\D/g, '')
+      // Replace leading 0 with 62 if applicable
+      if (whatsapp.startsWith('0')) {
+        whatsapp = '62' + whatsapp.slice(1)
+      }
+    }
 
     // Helper for upsert
     const upsertSetting = async (key: string, value: string) => {
