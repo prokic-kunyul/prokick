@@ -2,6 +2,8 @@ import { db } from '@/lib/db'
 import { settings } from '@/db/schema'
 import { SettingsForm } from './SettingsForm'
 
+export const dynamic = 'force-dynamic';
+
 export default async function AdminSettingsPage() {
   const allSettings = await db.select().from(settings)
   const settingsMap = allSettings.reduce((acc, curr) => {
