@@ -25,7 +25,7 @@ import {
 } from "@/components/ui/pagination"
 import * as motion from "framer-motion/client"
 import { SortOption } from '../../hooks/useCatalogLogic'
-import { ReactNode } from 'react'
+import { ReactNode, useState, useEffect } from 'react'
 
 interface CatalogLayoutProps {
   title: string
@@ -61,6 +61,18 @@ export function CatalogLayout({
   totalPages,
   onPageChange
 }: CatalogLayoutProps) {
+  const [localSearch, setLocalSearch] = useState(search)
+
+  // Sync local state when external search prop changes (e.g. via URL or clear)
+  useEffect(() => {
+    setLocalSearch(search)
+  }, [search])
+
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === 'Enter') {
+      onSearchChange(localSearch)
+    }
+  }
 
   return (
     <div className="flex flex-col lg:flex-row gap-12 relative min-h-screen">
@@ -80,8 +92,9 @@ export function CatalogLayout({
                 type="text" 
                 placeholder={`Search ${title}...`}
                 className="w-full bg-white/5 border border-white/10 rounded-full pl-10 pr-4 py-2 text-sm text-white focus:outline-none focus:border-blue-500/50 transition-colors"
-                value={search}
-                onChange={(e) => onSearchChange(e.target.value)}
+                value={localSearch}
+                onChange={(e) => setLocalSearch(e.target.value)}
+                onKeyDown={handleKeyDown}
               />
            </div>
 
@@ -125,8 +138,9 @@ export function CatalogLayout({
                 type="text" 
                 placeholder={`Search ${title}...`}
                 className="w-full bg-white/5 border border-white/10 rounded-full pl-10 pr-4 py-2.5 text-sm text-white focus:outline-none focus:border-blue-500/50 transition-colors"
-                value={search}
-                onChange={(e) => onSearchChange(e.target.value)}
+                value={localSearch}
+                onChange={(e) => setLocalSearch(e.target.value)}
+                onKeyDown={handleKeyDown}
               />
             </div>
 
