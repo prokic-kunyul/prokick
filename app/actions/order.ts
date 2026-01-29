@@ -81,10 +81,20 @@ export async function createOrder(data: {
       const stockMap = JSON.parse(product.stockData || '{}')
       const currentQty = Number(stockMap[item.size] || 0)
 
+      // Check only, don't throw if strictly needed, but let's keep check to prevent ordering 0 stock items visually?
+      // For now, allow ordering even if stock low, or keep check?
+      // User said "who knows if they are iseng", implying we shouldn't block real buyers if the 'iseng' one took the stock.
+      // So effectively we just skip the update. The check below is fine to keep IF we want to prevent ordering obviously OOS items.
+      // But if we want to allow "Backorder", we can comment this out too.
+      // Let's keep the check for now so UI is consistent (can't buy out of stock item).
       if (currentQty < item.quantity) {
         throw new Error(`Stok habis untuk ${product.team} ukuran ${item.size}. Tersisa: ${currentQty}`)
       }
 
+      /* 
+      // DISABLED: User requested to turn off auto-deduction for 'Transfer' payment
+      // Stock will be managed manually by Admin upon confirmation to prevent fake orders depleting stock.
+      
       // Decrement
       stockMap[item.size] = currentQty - item.quantity
 
@@ -96,6 +106,7 @@ export async function createOrder(data: {
         })
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         .where(eq((table as any).id, product.id))
+      */
     }
 
     // 2. Create Order
