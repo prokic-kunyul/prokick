@@ -13,14 +13,18 @@ interface SettingsFormProps {
   }
 }
 
+import { useRouter } from 'next/navigation'
+
 export function SettingsForm({ initialSettings }: SettingsFormProps) {
   const [isPending, startTransition] = useTransition()
+  const router = useRouter()
 
   const handleSubmit = async (formData: FormData) => {
     startTransition(async () => {
       const result = await updateSettings(formData)
       if (result.success) {
         toast.success('Settings updated successfully!')
+        router.refresh() // Force UI update
       } else {
         toast.error('Failed to update settings')
       }
