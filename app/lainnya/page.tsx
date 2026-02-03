@@ -20,7 +20,7 @@ export default async function OtherProductsPage() {
   const title = 'Aksesoris & Produk Lainnya'
 
   return (
-    <main className="min-h-screen pb-20 pt-20">
+    <main className="min-h-screen pb-40 pt-20">
       <Header />
       
       <div className="max-w-[1440px] mx-auto px-6">

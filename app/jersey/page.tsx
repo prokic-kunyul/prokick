@@ -33,7 +33,7 @@ export default async function JerseyPage({ searchParams }: { searchParams: Promi
   const title = categoryFilter ? `Koleksi ${categoryFilter}` : 'Koleksi Jersey & Apparel'
 
   return (
-    <main className="min-h-screen pb-20 pt-20">
+    <main className="min-h-screen pb-40 pt-20">
       <Header />
       
       <div className="max-w-[1440px] mx-auto px-6">

@@ -204,7 +204,7 @@ export default function CartPage() {
   if (!mounted) return null
 
   return (
-    <div className="min-h-screen pb-20 pt-20">
+    <div className="min-h-screen pb-40 pt-20">
       <Header />
 
       <div className="max-w-[1100px] mx-auto px-6 pt-4">
