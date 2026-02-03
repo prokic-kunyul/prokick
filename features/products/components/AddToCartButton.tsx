@@ -118,25 +118,25 @@ export function AddToCartButton({ id, team, type, price, image, availableSizes, 
       <div className="space-y-4">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 sm:gap-0">
            <span className="text-sm font-medium text-gray-400">Jumlah Item</span>
-           <div className="flex items-center gap-3 sm:gap-4 bg-[#111] border border-white/10 p-1.5 sm:p-2 w-full sm:w-fit justify-between sm:justify-start rounded-lg">
+           <div className="flex items-center gap-8 sm:gap-4 bg-[#111] border border-white/10 p-1.5 sm:p-2 w-full sm:w-fit justify-center sm:justify-start rounded-lg">
             <Button
               variant="ghost"
               size="icon"
               onClick={() => handleQuantityChange(quantity - 1)} 
-              className="w-8 h-8 sm:w-10 sm:h-10 text-white hover:bg-white/10 hover:text-white"
+              className="w-10 h-10 text-white hover:bg-white/10 hover:text-white"
               disabled={isOutOfStock || quantity <= 1}
             >
-              <Minus className="w-3 h-3 sm:w-4 sm:h-4" />
+              <Minus className="w-4 h-4" />
             </Button>
-            <span className="w-8 text-center text-white font-bold text-sm sm:text-base">{isOutOfStock ? 0 : quantity}</span>
+            <span className="w-8 text-center text-white font-bold text-base">{isOutOfStock ? 0 : quantity}</span>
             <Button 
               variant="ghost"
               size="icon"
               onClick={() => handleQuantityChange(quantity + 1)} 
-              className="w-8 h-8 sm:w-10 sm:h-10 text-white hover:bg-white/10 hover:text-white"
+              className="w-10 h-10 text-white hover:bg-white/10 hover:text-white"
               disabled={isOutOfStock || quantity >= maxQuantity}
             >
-              <Plus className="w-3 h-3 sm:w-4 sm:h-4" />
+              <Plus className="w-4 h-4" />
             </Button>
           </div>
         </div>
