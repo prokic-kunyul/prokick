@@ -6,6 +6,8 @@ import { BottomNav } from "@/components/layout/BottomNav";
 import { ContentProtection } from "@/components/ContentProtection";
 import { WhatsAppFloatButton } from "@/components/WhatsAppFloatButton";
 import { QuickViewProvider } from "@/components/QuickViewProvider";
+import { PromoPopup } from "@/components/ui/PromoPopup";
+import { ScrollToTop } from "@/components/ui/ScrollToTop";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -128,6 +130,8 @@ export default async function RootLayout({
         <Footer />
         <BottomNav />
         <WhatsAppFloatButton phoneNumber={whatsappNumber} />
+        <ScrollToTop />
+        <PromoPopup />
         <Toaster 
           position="bottom-right"
           toastOptions={{
