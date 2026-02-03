@@ -36,20 +36,20 @@ const CATEGORIES = [
 
 export function CategoryGrid() {
   return (
-    <section className="container mx-auto px-4 py-20">
-      <div className="flex items-end justify-between mb-12 border-b border-white/5 pb-6">
+    <section className="container mx-auto px-4 py-12 md:py-20">
+      <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 md:mb-12 border-b border-white/5 pb-6 gap-4">
          <div>
-           <h2 className="text-3xl md:text-5xl font-bold text-white mb-2">Trending Collections</h2>
-           <p className="text-gray-400">Jelajahi kategori populer kami</p>
+           <h2 className="text-2xl md:text-5xl font-bold text-white mb-2">Trending Collections</h2>
+           <p className="text-sm md:text-base text-gray-400">Jelajahi kategori populer kami</p>
          </div>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 auto-rows-[300px]">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 auto-rows-[200px] md:auto-rows-[300px]">
         {CATEGORIES.map((cat) => (
           <Link 
             key={cat.title} 
             href={cat.link}
-            className={`relative group overflow-hidden rounded-3xl border border-white/10 bg-white/5 backdrop-blur-sm ${cat.colSpan} flex flex-col justify-end p-8 transition-all hover:border-white/30`}
+            className={`relative group overflow-hidden rounded-2xl md:rounded-3xl border border-white/10 bg-white/5 backdrop-blur-sm ${cat.colSpan} flex flex-col justify-end p-6 md:p-8 transition-all hover:border-white/30`}
           >
             {/* Background Image */}
             <div className="absolute inset-0">

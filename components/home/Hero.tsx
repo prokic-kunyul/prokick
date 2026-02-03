@@ -34,28 +34,28 @@ export async function Hero() {
              transition={{ duration: 0.8 }}
              className="text-left space-y-8"
           >
-            <span className="inline-block py-2 px-4 rounded-full bg-blue-500/10 border border-blue-400/30 text-cyan-300 text-sm font-bold tracking-wider backdrop-blur-md uppercase shadow-[0_0_15px_rgba(59,130,246,0.5)]">
+            <span className="inline-block py-1.5 px-3 md:py-2 md:px-4 rounded-full bg-blue-500/10 border border-blue-400/30 text-cyan-300 text-xs md:text-sm font-bold tracking-wider backdrop-blur-md uppercase shadow-[0_0_15px_rgba(59,130,246,0.5)] mb-2 md:mb-0">
               • Toko Jersey Terpercaya
             </span>
             
-            <h1 className="text-5xl md:text-7xl font-bold leading-tight text-white tracking-tight">
+            <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold leading-tight text-white tracking-tight">
               JERSEY BOLA <br/>
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-400 to-white drop-shadow-[0_0_10px_rgba(59,130,246,0.8)]">
                 PREMIUM
               </span>
             </h1>
 
-            <p className="text-lg text-blue-100/80 max-w-xl leading-relaxed">
+            <p className="text-base md:text-lg text-blue-100/80 max-w-xl leading-relaxed">
               Koleksi jersey liga top Eropa dan tim nasional. Kualitas terbaik, harga bersaing.
             </p>
             
-            <div className="flex flex-wrap gap-4">
-              <Button asChild size="lg" className="rounded-full px-8 py-7 text-lg font-bold bg-white text-black hover:bg-blue-50 hover:scale-105 transition-all duration-300 shadow-[0_0_30px_-10px_rgba(255,255,255,0.5)]">
+            <div className="flex flex-wrap gap-3 md:gap-4">
+              <Button asChild size="lg" className="flex-1 md:flex-none rounded-full px-6 py-6 md:px-8 md:py-7 text-base md:text-lg font-bold bg-white text-black hover:bg-blue-50 hover:scale-105 transition-all duration-300 shadow-[0_0_30px_-10px_rgba(255,255,255,0.5)]">
                 <Link href="#collection">
                   Belanja Sekarang
                 </Link>
               </Button>
-              <Button asChild variant="outline" size="lg" className="rounded-full px-8 py-7 text-lg font-bold border-white/20 bg-white/5 backdrop-blur-sm text-white hover:bg-white/10 hover:border-white/40">
+              <Button asChild variant="outline" size="lg" className="flex-1 md:flex-none rounded-full px-6 py-6 md:px-8 md:py-7 text-base md:text-lg font-bold border-white/20 bg-white/5 backdrop-blur-sm text-white hover:bg-white/10 hover:border-white/40">
                 <Link href="/jersey">
                   Lihat Katalog
                 </Link>

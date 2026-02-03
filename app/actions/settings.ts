@@ -34,6 +34,7 @@ export async function updateSettings(formData: FormData) {
 
     revalidatePath('/admin/settings')
     revalidatePath('/cart')
+    revalidatePath('/', 'layout') 
     
     return { success: true }
   } catch (error) {

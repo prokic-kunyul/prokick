@@ -91,11 +91,31 @@ export const metadata: Metadata = {
   manifest: '/manifest.json',
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  // Fetch settings for global configuration
+  // We use a try-catch block to ensure the app doesn't crash if DB is unreachable
+  let whatsappNumber = '6282197008330'; // Default fallback
+  
+  try {
+    const { db } = await import('@/lib/db');
+    const { settings } = await import('@/db/schema');
+    const { eq } = await import('drizzle-orm');
+    
+    // Use select query instead of query builder to avoid TS issues with global type
+    const result = await db.select().from(settings).where(eq(settings.key, 'whatsapp'));
+    const whatsappSetting = result[0];
+    
+    if (whatsappSetting?.value) {
+      whatsappNumber = whatsappSetting.value;
+    }
+  } catch (error) {
+    console.error('Failed to load settings in layout:', error);
+  }
+
   return (
     <html lang="en">
       <body
@@ -107,7 +127,7 @@ export default function RootLayout({
         </QuickViewProvider>
         <Footer />
         <BottomNav />
-        <WhatsAppFloatButton />
+        <WhatsAppFloatButton phoneNumber={whatsappNumber} />
         <Toaster 
           position="bottom-right"
           toastOptions={{
