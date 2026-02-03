@@ -119,7 +119,7 @@ export default async function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${russoOne.variable} antialiased bg-black text-white pb-16 md:pb-0`}
+        className={`${geistSans.variable} ${geistMono.variable} ${russoOne.variable} antialiased bg-black text-white pb-32 md:pb-0`}
       >
         <ContentProtection />
         <QuickViewProvider>
