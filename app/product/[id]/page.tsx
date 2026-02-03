@@ -181,7 +181,7 @@ export default async function ProductDetailPage({ params, searchParams }: Props 
 
       <Header />
 
-      <main className="max-w-[1440px] mx-auto px-6 pt-24 pb-20 relative z-10">
+      <main className="max-w-[1440px] mx-auto px-4 md:px-6 pt-24 pb-40 relative z-10">
         <div className="max-w-4xl mx-auto">
           {/* Back Link */}
           <Link href="/products" className="inline-flex items-center text-blue-300/60 hover:text-cyan-400 mb-6 text-sm transition-colors uppercase tracking-wider font-medium">
@@ -197,7 +197,7 @@ export default async function ProductDetailPage({ params, searchParams }: Props 
             </div>
   
             {/* Content */}
-            <div className="p-6 md:p-8 space-y-6">
+            <div className="p-4 md:p-8 space-y-6">
             
             {/* Title */}
             <h1 className="text-2xl md:text-3xl font-black text-white italic tracking-tighter">
