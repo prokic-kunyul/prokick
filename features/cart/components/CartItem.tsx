@@ -72,7 +72,7 @@ export function CartItem({ item, onUpdateQuantity, onUpdateSize, onRemove }: Car
           <div className="flex items-center gap-2 mb-2">
              <span className="text-xs text-blue-300/50 font-bold uppercase tracking-wider">Size:</span>
              <Select 
-               defaultValue={item.size} 
+               value={item.size} 
                onValueChange={(newSize) => onUpdateSize(item.id, item.size, newSize, item.customName, item.customNumber, item.customPatch)}
              >
               <SelectTrigger className="w-[70px] h-8 bg-blue-900/20 border-blue-500/20 text-white text-xs focus:ring-cyan-500/50 focus:border-cyan-500/50">
