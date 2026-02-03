@@ -44,38 +44,44 @@ export function CartItem({ item, onUpdateQuantity, onUpdateSize, onRemove }: Car
 
   return (
     <>
-      <div className="bg-[#050A1F]/50 border border-blue-500/20 p-4 rounded-xl flex items-center gap-4 hover:border-cyan-400/30 transition-colors group">
-        <div className="w-20 h-20 bg-blue-900/20 border border-blue-500/10 flex items-center justify-center overflow-hidden relative rounded-lg">
-          {item.image ? (
-            <Image src={item.image} alt={item.team} fill className="object-cover" sizes="80px" />
-          ) : (
-            <span className="text-xs text-blue-500/50">No Img</span>
-          )}
+      <div className="bg-[#050A1F]/50 border border-blue-500/20 p-4 rounded-xl hover:border-cyan-400/30 transition-colors group">
+        {/* Top Row: Image + Product Info */}
+        <div className="flex items-start gap-4">
+          <div className="w-20 h-20 flex-shrink-0 bg-blue-900/20 border border-blue-500/10 flex items-center justify-center overflow-hidden relative rounded-lg">
+            {item.image ? (
+              <Image src={item.image} alt={item.team} fill className="object-cover" sizes="80px" />
+            ) : (
+              <span className="text-xs text-blue-500/50">No Img</span>
+            )}
+          </div>
+          
+          <div className="flex-1 min-w-0">
+            <h3 className="text-white font-bold tracking-tight truncate">{item.team}</h3>
+            <p className="text-sm text-blue-200/60 font-medium">{item.type}</p>
+            
+            {/* Customization Display */}
+            {(item.customName || item.customNumber || item.customPatch) && (
+               <div className="text-xs text-yellow-500 font-mono mt-1 border-l-2 border-yellow-500 pl-2">
+                  {item.customName && <div>Name: {item.customName}</div>}
+                  {item.customNumber && <div>No: {item.customNumber}</div>}
+                  {item.customPatch && <div>Patch: {item.customPatch}</div>}
+               </div>
+            )}
+            
+            <p className="text-cyan-400 font-bold mt-2 text-lg drop-shadow-[0_0_8px_rgba(6,182,212,0.3)]">{formatCurrency(item.price)}</p>
+          </div>
         </div>
-        
-        <div className="flex-1">
-          <h3 className="text-white font-bold tracking-tight">{item.team}</h3>
-          <p className="text-sm text-blue-200/60 font-medium">{item.type}</p>
-          
-          {/* Customization Display */}
-          {(item.customName || item.customNumber || item.customPatch) && (
-             <div className="text-xs text-yellow-500 font-mono mt-1 border-l-2 border-yellow-500 pl-2">
-                {item.customName && <div>Name: {item.customName}</div>}
-                {item.customNumber && <div>No: {item.customNumber}</div>}
-                {item.customPatch && <div>Patch: {item.customPatch}</div>}
-             </div>
-          )}
-          
-          <div className="mt-2" />
 
-          {/* Size Editor */}
-          <div className="flex items-center gap-2 mb-2">
+        {/* Bottom Row: Size + Quantity + Actions */}
+        <div className="flex flex-wrap items-center justify-between gap-3 mt-4 pt-4 border-t border-blue-500/10">
+          {/* Size Selector */}
+          <div className="flex items-center gap-2">
              <span className="text-xs text-blue-300/50 font-bold uppercase tracking-wider">Size:</span>
              <Select 
                value={item.size} 
                onValueChange={(newSize) => onUpdateSize(item.id, item.size, newSize, item.customName, item.customNumber, item.customPatch)}
              >
-              <SelectTrigger className="w-[70px] h-8 bg-blue-900/20 border-blue-500/20 text-white text-xs focus:ring-cyan-500/50 focus:border-cyan-500/50">
+              <SelectTrigger className="w-[70px] h-9 bg-blue-900/20 border-blue-500/20 text-white text-sm focus:ring-cyan-500/50 focus:border-cyan-500/50">
                 <SelectValue placeholder="Size" />
               </SelectTrigger>
               <SelectContent className="bg-[#050A1F] border-blue-500/20 text-white min-w-[70px]">
@@ -88,47 +94,45 @@ export function CartItem({ item, onUpdateQuantity, onUpdateSize, onRemove }: Car
              </Select>
           </div>
 
-          <p className="text-cyan-400 font-bold mt-1 text-lg drop-shadow-[0_0_8px_rgba(6,182,212,0.3)]">{formatCurrency(item.price)}</p>
-        </div>
+          {/* Quantity + Actions */}
+          <div className="flex items-center gap-2">
+            {canCustomize && (
+              <Button
+                variant="outline"
+                size="sm"
+                onClick={() => setIsCustomizeModalOpen(true)}
+                className="h-9 text-xs border-cyan-500/30 text-cyan-400 hover:bg-cyan-500/10 hover:text-cyan-300 px-2"
+              >
+                <Edit3 className="w-3 h-3 mr-1" />
+                Custom
+              </Button>
+            )}
 
-        <div className="flex flex-col items-end gap-2">
-          {canCustomize && (
-            <Button
-              variant="outline"
-              size="sm"
-              onClick={() => setIsCustomizeModalOpen(true)}
-              className="h-7 text-xs border-cyan-500/30 text-cyan-400 hover:bg-cyan-500/10 hover:text-cyan-300"
-            >
-              <Edit3 className="w-3 h-3 mr-1" />
-              {item.customName ? 'Edit Custom' : 'Kustomisasi'}
-            </Button>
-          )}
-
-          <div className="flex items-center gap-3">
-            <div className="flex items-center gap-2 bg-blue-900/20 border border-blue-500/20 p-1 rounded-lg">
+            <div className="flex items-center gap-1 bg-blue-900/20 border border-blue-500/20 p-1 rounded-lg">
               <Button 
                 variant="ghost"
                 size="icon"
                 onClick={() => onUpdateQuantity(item.id, item.size, Math.max(1, item.quantity - 1), item.customName, item.customNumber, item.customPatch)} 
-                className="h-8 w-8 rounded-md text-white hover:bg-cyan-500/20 hover:text-cyan-400"
+                className="h-9 w-9 rounded-md text-white hover:bg-cyan-500/20 hover:text-cyan-400 text-lg"
               >
-                -
+                −
               </Button>
-              <span className="text-white text-sm w-6 text-center font-bold">{item.quantity}</span>
+              <span className="text-white text-sm w-8 text-center font-bold">{item.quantity}</span>
               <Button 
                 variant="ghost"
                 size="icon"
                 onClick={() => onUpdateQuantity(item.id, item.size, item.quantity + 1, item.customName, item.customNumber, item.customPatch)} 
-                className="h-8 w-8 rounded-md text-white hover:bg-cyan-500/20 hover:text-cyan-400"
+                className="h-9 w-9 rounded-md text-white hover:bg-cyan-500/20 hover:text-cyan-400 text-lg"
               >
                 +
               </Button>
             </div>
+            
             <Button 
               variant="ghost"
               size="icon"
               onClick={() => onRemove(item.id, item.size, item.customName, item.customNumber, item.customPatch)} 
-              className="text-blue-500/50 hover:text-red-400 hover:bg-red-500/10 rounded-full"
+              className="h-9 w-9 text-blue-500/50 hover:text-red-400 hover:bg-red-500/10 rounded-full"
             >
               <Trash03 className="w-5 h-5" />
             </Button>
