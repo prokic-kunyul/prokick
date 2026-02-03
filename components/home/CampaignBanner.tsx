@@ -48,7 +48,7 @@ export function CampaignBanner() {
             asChild 
             className="bg-white text-blue-900 hover:bg-blue-50 font-bold text-lg px-10 py-7 rounded-none uppercase tracking-widest shadow-[0_0_30px_rgba(255,255,255,0.3)] border border-white/50 hover:scale-105 transition-all duration-300"
           >
-            <Link href="/products?category=Special Edition">
+            <Link href="/#collection">
               SHOP NOW
             </Link>
           </Button>
