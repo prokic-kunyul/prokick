@@ -35,7 +35,7 @@ export async function Hero() {
              className="text-left space-y-8"
           >
             <span className="inline-block py-1.5 px-3 md:py-2 md:px-4 rounded-full bg-blue-500/10 border border-blue-400/30 text-cyan-300 text-xs md:text-sm font-bold tracking-wider backdrop-blur-md uppercase shadow-[0_0_15px_rgba(59,130,246,0.5)] mb-2 md:mb-0">
-              • Toko Jersey Terpercaya
+              • Pro Kick Toko Olahraga Terbaik
             </span>
             
             <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold leading-tight text-white tracking-tight">

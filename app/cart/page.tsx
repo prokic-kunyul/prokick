@@ -234,7 +234,7 @@ export default function CartPage() {
         ) : items.length === 0 ? (
           <div className="py-20 border-t border-blue-500/20 text-center">
             <p className="text-blue-200/60 mb-8 text-xl">Keranjang Anda masih kosong, ayo isi dengan jersey impian!</p>
-            <Link href="/products" className="inline-block px-10 py-4 bg-cyan-400 text-black rounded-full font-black hover:bg-cyan-300 hover:scale-105 transition-all shadow-[0_0_20px_rgba(6,182,212,0.5)]">
+            <Link href="/#collection" className="inline-block px-10 py-4 bg-cyan-400 text-black rounded-full font-black hover:bg-cyan-300 hover:scale-105 transition-all shadow-[0_0_20px_rgba(6,182,212,0.5)]">
               LANJUT BELANJA
             </Link>
           </div>
