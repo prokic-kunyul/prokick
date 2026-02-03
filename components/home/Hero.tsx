@@ -39,9 +39,9 @@ export async function Hero() {
             </span>
             
             <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold leading-tight text-white tracking-tight">
-              JERSEY BOLA <br/>
+              KOLEKSI OLAHRAGA <br/>
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-400 to-white drop-shadow-[0_0_10px_rgba(59,130,246,0.8)]">
-                PREMIUM
+                TERLENGKAP
               </span>
             </h1>
 
