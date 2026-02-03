@@ -49,18 +49,7 @@ export async function Hero() {
               Koleksi jersey liga top Eropa dan tim nasional. Kualitas terbaik, harga bersaing.
             </p>
             
-            <div className="flex flex-wrap gap-3 md:gap-4">
-              <Button asChild size="lg" className="flex-1 md:flex-none rounded-full px-6 py-6 md:px-8 md:py-7 text-base md:text-lg font-bold bg-white text-black hover:bg-blue-50 hover:scale-105 transition-all duration-300 shadow-[0_0_30px_-10px_rgba(255,255,255,0.5)]">
-                <Link href="#collection">
-                  Belanja Sekarang
-                </Link>
-              </Button>
-              <Button asChild variant="outline" size="lg" className="flex-1 md:flex-none rounded-full px-6 py-6 md:px-8 md:py-7 text-base md:text-lg font-bold border-white/20 bg-white/5 backdrop-blur-sm text-white hover:bg-white/10 hover:border-white/40">
-                <Link href="/jersey">
-                  Lihat Katalog
-                </Link>
-              </Button>
-            </div>
+            {/* Buttons removed as per request to focus on Trending Collection */}
           </motion.div>
 
           {/* Right Column: Visual Showcase */}
